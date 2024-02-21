@@ -20,7 +20,7 @@ namespace MessageBoard.Models
 
     public static List<Message> GetMessages()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAllMessages();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -29,9 +29,9 @@ namespace MessageBoard.Models
       return messagesList;
     }
 
-    public static Message GetDetails(int id)
+    public static Message GetMessageDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ApiHelper.GetMessage(id);
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -40,21 +40,21 @@ namespace MessageBoard.Models
       return message;
     }
 
-    public static void Post(Message message)
+    public static void PostMessage(Message message)
     {
       string jsonMessage = JsonConvert.SerializeObject(message);
-      ApiHelper.Post(jsonMessage);
+      ApiHelper.PostMessage(jsonMessage);
     }
 
-     public static void Put(Message message)
+     public static void PutMessage(Message message)
     {
       string jsonMessage = JsonConvert.SerializeObject(message);
-      ApiHelper.Put(message.MessageId, jsonMessage);
+      ApiHelper.PutMessage(message.MessageId, jsonMessage);
     }
 
-    public static void Delete(int id)
+    public static void DeleteMessage(int id)
     {
-      ApiHelper.Delete(id);
+      ApiHelper.DeleteMessage(id);
     }
   }
 }

@@ -1,0 +1,20 @@
+@{
+  ViewData["Title"] = "Create Group";
+}
+
+@model MessageBoard.Models.Group
+
+<h4>Add a new Group to the Topic</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.GroupId)
+  @Html.LabelFor(model => model.Topic)
+  @Html.TextBoxFor(model => model.Topic)
+  <br />
+ 
+  <input type="submit" value="Add new group" class="btn btn-primary"/>
+}
+
+<br />
+<p>@Html.ActionLink("Back to all groups", "Index")</p>

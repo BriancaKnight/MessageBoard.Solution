@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Groups";
+}
+
+<h1>All Board Groups:</h1>
+<h3>Actions:</h3>
+
+<p>@Html.ActionLink("Add a new group to the topic", "Create")</p>
+
+<h3>Groups<h3>
+<ol>
+@foreach (Group group in Model)
+{
+  <li>
+  <br/>
+   @group.Topic | <a href="/Groups/Details/@(group.GroupId)">View Details</a></li>
+}
+</ol>

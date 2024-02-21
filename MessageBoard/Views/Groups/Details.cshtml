@@ -1,0 +1,12 @@
+@{
+  ViewData["Title"] = $"Details for {Model.GroupId}";
+}
+
+<h1>All About @Model.GroupId</h1>
+
+<p>Text: @Model.Topic</p>
+
+
+<p>@Html.ActionLink("Edit details", "Edit", new { id = @Model.GroupId })</p>
+<p>@Html.ActionLink("Delete Group", "Delete", new { id = @Model.GroupId })</p>
+@Html.ActionLink("Return to all Groups", "Index")
