@@ -1,0 +1,21 @@
+@{
+  ViewData["Title"] = "Create Message";
+}
+
+@model MessageBoard.Models.Message
+
+<h4>Add a new Message to the Topic</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MessageId)
+  @Html.LabelFor(model => model.Text)
+  @Html.TextBoxFor(model => model.Text)
+  <br />
+  @Html.HiddenFor(model => model.Date)
+  <br />
+  <input type="submit" value="Add new animal" class="btn btn-primary"/>
+}
+
+<br />
+<p>@Html.ActionLink("Back to all animals", "Index")</p>

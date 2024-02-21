@@ -1,0 +1,12 @@
+@{
+  ViewData["Title"] = $"Details for {Model.MessageId}";
+}
+
+<h1>All About @Model.MessageId</h1>
+
+<p>Text: @Model.Text</p>
+<p>Date: @Model.Date</p>
+
+<p>@Html.ActionLink("Edit details", "Edit", new { id = @Model.MessageId })</p>
+<p>@Html.ActionLink("Delete message", "Delete", new { id = @Model.MessageId })</p>
+@Html.ActionLink("Return to all messages", "Index")
